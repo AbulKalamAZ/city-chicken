@@ -26,16 +26,23 @@ const Timings = () => {
         </Typography>
       </Box>
       <Box>
-        <Grid container>
-          <Grid sx={{ px: "0px !important" }} item xs={12} sm={12} md={4}>
-            <div className="relative overflow-x-hidden">
+        <Grid container spacing={4}>
+          <Grid item xs={12} sm={12} md={4}>
+            <Box
+              className="relative overflow-x-hidden"
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
+                alignItems: "center",
+              }}
+            >
               <table
                 style={{ fontFamily: "Inter", fontSize: "12px" }}
                 className=" text-sm text-left  dark:text-gray-400"
               >
                 <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
                   <tr className="border-b">
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="pr-6 py-3">
                       Ladenzeiten
                     </th>
                     <th scope="col" className="px-6 py-3">
@@ -48,18 +55,25 @@ const Timings = () => {
                 </thead>
                 {days?.map((day, index) => (
                   <tbody key={index}>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      <td className="px-6 py-4"> {day.name}</td>
+                    <tr className="bg-[#fafafa] border-b dark:bg-gray-800 dark:border-gray-700">
+                      <td className="px-r py-4"> {day.name}</td>
                       <td className="px-6 py-4">{day.openTime}</td>
                       <td className="px-6 py-4">{day.closeTime}</td>
                     </tr>
                   </tbody>
                 ))}
               </table>
-            </div>
+            </Box>
           </Grid>
-          <Grid sx={{ px: "0px !important" }} item xs={12} sm={12} md={4}>
-            <div className="relative overflow-x-hidden">
+          <Grid item xs={12} sm={12} md={4}>
+            <Box
+              className="relative overflow-x-hidden"
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
+                alignItems: "center",
+              }}
+            >
               <table
                 style={{ fontFamily: "Inter", fontSize: "12px" }}
                 className=" text-sm text-left  dark:text-gray-400"
@@ -69,7 +83,7 @@ const Timings = () => {
                     <th
                       scope="col"
                       style={{ fontFamily: "Inter" }}
-                      className="px-6 py-3"
+                      className="pr-6 py-3"
                     >
                       Pausenzieten
                     </th>
@@ -83,25 +97,32 @@ const Timings = () => {
                 </thead>
                 {pause?.map((day, index) => (
                   <tbody key={index}>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      <td className="px-6 py-4"> {day.name}</td>
+                    <tr className="bg-[#fafafa] border-b dark:bg-gray-800 dark:border-gray-700">
+                      <td className="pr-6 py-4"> {day.name}</td>
                       <td className="px-6 py-4">{day.openTime}</td>
                       <td className="px-6 py-4">{day.closeTime}</td>
                     </tr>
                   </tbody>
                 ))}
               </table>
-            </div>
+            </Box>
           </Grid>
-          <Grid sx={{ px: "0px !important" }} item xs={12} sm={12} md={4}>
-            <div className="relative overflow-x-hidden">
+          <Grid item xs={12} sm={12} md={4}>
+            <Box
+              className="relative overflow-x-hidden"
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
+                alignItems: "center",
+              }}
+            >
               <table
                 style={{ fontFamily: "Inter", fontSize: "12px" }}
                 className=" text-sm text-left  dark:text-gray-400"
               >
                 <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
                   <tr className="border-b">
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="pr-6 py-3">
                       Kuchenzeiten
                     </th>
                     <th scope="col" className="px-6 py-3">
@@ -114,15 +135,15 @@ const Timings = () => {
                 </thead>
                 {days?.map((day, index) => (
                   <tbody key={index}>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      <td className="px-6 py-4"> {day.name}</td>
+                    <tr className="bg-[#fafafa] border-b dark:bg-gray-800 dark:border-gray-700">
+                      <td className="pr-6 py-4"> {day.name}</td>
                       <td className="px-6 py-4">{day.openTime}</td>
                       <td className="px-6 py-4">{day.closeTime}</td>
                     </tr>
                   </tbody>
                 ))}
               </table>
-            </div>
+            </Box>
           </Grid>
         </Grid>
       </Box>
