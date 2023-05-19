@@ -1,16 +1,22 @@
-import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
-import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
-import TabUnstyled, { tabUnstyledClasses } from "@mui/base/TabUnstyled";
-import TabsListUnstyled from "@mui/base/TabsListUnstyled";
-import TabsUnstyled from "@mui/base/TabsUnstyled";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import { useRef } from "react";
 
 const Footer = () => {
-  const Tab = styled(TabUnstyled)`
+  const selectedTab = useRef(null);
+  const tabOne = useRef(null);
+  const tabTwo = useRef(null);
+  const tabThree = useRef(null);
+
+  const panelOne = useRef(null);
+  const panelTwo = useRef(null);
+  const panelThree = useRef(null);
+
+  const CustomFooterButton = styled(Button)`
     font-family: Inter;
     font-size: 16px;
     font-weight: 700;
+    text-transform: capitalize;
     color: white;
     margin: 6px 6px;
     border: none;
@@ -22,229 +28,286 @@ const Footer = () => {
       color: #f7ab3c;
     }
 
-    &:focus {
+    &.selected {
       color: #f7ab3c;
-      outline: none;
-    }
-
-    &.${tabUnstyledClasses.selected} {
-      color: #f7ab3c;
-    }
-
-    &.${buttonUnstyledClasses.disabled} {
-      opacity: 0.5;
-      cursor: not-allowed;
     }
   `;
 
-  const TabsList = styled(TabsListUnstyled)`
-    background-color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: space-between;
-    gap: 32px;
-    padding: 32px;
+  const handleBtnClick = (e) => {
+    const classes = e.target.classList;
 
-    span {
-      font-family: Inter;
-      font-size: 16px;
-      font-weight: 700;
-      color: white;
-      margin: 6px 6px;
+    if (classes.contains("selected")) {
+      classes.remove("selected");
+      panelOne.current.style.display = "none";
+      panelTwo.current.style.display = "none";
+      panelThree.current.style.display = "none";
+      return 0;
+    } else {
+      classes.add("selected");
     }
-  `;
+
+    if (e.target === tabOne.current) {
+      panelOne.current.style.display = "block";
+
+      panelTwo.current.style.display = "none";
+      panelThree.current.style.display = "none";
+
+      tabTwo.current.classList.contains("selected")
+        ? tabTwo.current.classList.remove("selected")
+        : console.log("not found 2");
+      tabTwo.current.classList.contains("selected")
+        ? tabThree.current.classList.remove("selected")
+        : console.log("not found 3");
+    } else if (e.target === tabTwo.current) {
+      panelTwo.current.style.display = "block";
+
+      panelOne.current.style.display = "none";
+      panelThree.current.style.display = "none";
+
+      tabOne.current.classList.contains("selected")
+        ? tabOne.current.classList.remove("selected")
+        : console.log("not found 1");
+      tabThree.current.classList.contains("selected")
+        ? tabThree.current.classList.remove("selected")
+        : console.log("not found 3");
+    } else {
+      panelThree.current.style.display = "block";
+
+      panelOne.current.style.display = "none";
+      panelTwo.current.style.display = "none";
+
+      tabOne.current.classList.contains("selected")
+        ? tabOne.current.classList.remove("selected")
+        : console.log("not found 1");
+      tabTwo.current.classList.contains("selected")
+        ? tabTwo.current.classList.remove("selected")
+        : console.log("not found 2");
+    }
+  };
 
   return (
     <footer>
       <Box sx={{ mt: { xs: 25, md: 20 } }}>
-        <TabsUnstyled
-          defaultValue={0}
-          aria-label="Tabs where selection follows focus"
-          selectionFollowsFocus
+        <Box
+          sx={{
+            backgroundColor: "#000000",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+            alignContent: "space-between",
+            gap: "32px",
+            padding: "32px",
+          }}
         >
-          <TabsList>
-            <Tab>Impressum</Tab>
-            <Tab>Datenschutz</Tab>
-            <Tab>AGB</Tab>
-            <span>© CNetX GmbH</span>
-          </TabsList>
+          <CustomFooterButton
+            disableRipple
+            ref={tabOne}
+            onClick={handleBtnClick}
+            data-value="0"
+          >
+            Impressum
+          </CustomFooterButton>
+          <CustomFooterButton
+            disableRipple
+            ref={tabTwo}
+            onClick={handleBtnClick}
+            data-value="1"
+          >
+            Datenschutz
+          </CustomFooterButton>
+          <CustomFooterButton
+            disableRipple
+            ref={tabThree}
+            onClick={handleBtnClick}
+            data-value="2"
+          >
+            AGB
+          </CustomFooterButton>
+          <Typography
+            sx={{
+              fontFamily: "Inter",
+              fontSize: "16px",
+              fontWeight: "700",
+              color: "white",
+              margin: "6px 6px",
+            }}
+          >
+            © CNetX GmbH
+          </Typography>
+        </Box>
 
-          <TabPanelUnstyled value={0}>
-            <Container maxWidth="lg" sx={{ py: { xs: 6, md: 12 } }}>
-              <Typography
-                sx={{
-                  color: "#3B3A4A ",
-                  fontSize: "32px",
-                  fontWeight: 400,
-                  fontFamily: "Contrail One !important",
-                  mb: 2,
-                }}
-              >
-                Impressum
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 400,
-                  color: "#838383",
-                }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
-                aspernatur quo architecto fugit ipsa, minus vel veniam labore
-                repellendus aliquam molestiae officia laudantium unde enim
-                tempora. Quaerat libero recusandae temporibus? Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Nam, aspernatur
-                quo architecto fugit ipsa, minus vel veniam labore repellendus
-                aliquam molestiae officia laudantium unde enim tempora. Quaerat
-                libero recusandae temporibus? Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Nam, aspernatur quo architecto
-                fugit ipsa, minus vel veniam labore repellendus aliquam
-                molestiae officia laudantium unde enim tempora. Quaerat libero
-                recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Nam, aspernatur quo architecto fugit ipsa,
-                minus vel veniam labore repellendus aliquam molestiae officia
-                laudantium unde enim tempora. Quaerat libero recusandae
-                temporibus?
-              </Typography>
-            </Container>
-          </TabPanelUnstyled>
-          <TabPanelUnstyled value={1}>
-            <Container maxWidth="lg" sx={{ py: { xs: 6, md: 12 } }}>
-              <Typography
-                sx={{
-                  color: "#3B3A4A ",
-                  fontSize: "32px",
-                  fontWeight: 400,
-                  fontFamily: "Contrail One !important",
-                  mb: 2,
-                }}
-              >
-                Datenschutz
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 400,
-                  color: "#838383",
-                  mb: 4,
-                }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
-                aspernatur quo architecto fugit ipsa, minus vel veniam labore
-                repellendus aliquam molestiae officia laudantium unde enim
-                tempora. Quaerat libero recusandae temporibus? Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Nam, aspernatur
-                quo architecto fugit ipsunde enim tempora. Quaerat libero
-                recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Nam, aspm molestiae officia laudantium unde
-                enim tempora. Quaerat libero recusandae temporibus?
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 400,
-                  color: "#838383",
-                  mb: 4,
-                }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
-                aspernatur quo architecto fugit ipsa, minus vel veniam labore
-                repellendus aliquam molestiae officia laudantium unde enim
-                tempora. Quaerat libero recusandae temporibus? Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Nam, aspernatur
-                quo architecto fugit ipsunde enim tempora. Quaerat libero
-                recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Nam, aspm molestiae officia laudantium unde
-                enim tempora. Quaerat libero recusandae temporibus?
-              </Typography>
-            </Container>
-          </TabPanelUnstyled>
-          <TabPanelUnstyled value={2}>
-            <Container maxWidth="lg" sx={{ py: { xs: 6, md: 12 } }}>
-              <Typography
-                sx={{
-                  color: "#3B3A4A ",
-                  fontSize: "32px",
-                  fontWeight: 400,
-                  fontFamily: "Contrail One !important",
-                  mb: 2,
-                }}
-              >
-                Allgemeine Geschäftsbedingungen
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 400,
-                  color: "#838383",
-                  mb: 4,
-                }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
-                aspernatur quo architecto fugit ipsa, minus vel veniam labore
-                repellendus aliquam molestiae officia laudantium unde enim
-                tempora. Quaerat libero recusandae temporibus? Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Nam, aspernatur
-                quo architecto fugit ipsa, minus vel veniam labore repellendus
-                aliquam molestiae officia laudantium unde enim tempora. Quaerat
-                libero recusandae temporibus? Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Nam, aspernatur quo architecto
-                fugit ipsa, minus vel veniam labore repellendus aliquam
-                molestiae officia laudantium unde enim tempora. Quaerat libero
-                recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Nam, aspernatur quo architecto fugit ipsa,
-                minus vel veniam labore repellendus aliquam molestiae officia
-                laudantium unde enim tempora. Quaerat libero recusandae
-                temporibus?
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 400,
-                  color: "#838383",
-                  mb: 4,
-                }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
-                aspernatur quo architecto fugit ipsa, minus vel veniam labore
-                repellendus aliquam molestiae officia laudantium unde enim
-                tempora. Quaerat libero recusandae temporibus? Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Nam, aspernatur
-                quo architecto fugit ipsa,rnatur quo architecto fugit ipsa,
-                minus vel veniam labore repellendus aliquam molestiae officia
-                laudantium unde enim tempora. Quaerat libero recusandae
-                temporibus?
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1rem",
-                  fontWeight: 400,
-                  color: "#838383",
-                  mb: 4,
-                }}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
-                aspernatur quo architecto fugit ipsa, minus vel veniam labore
-                repellendus aliquam molestiae officia laudantium unde enim
-                tempora. Quaerat libero recusandae temporibus? Lorem ipsum
-                dolor, sit amet consectetur adipisicing elit. Nam, aspernatur
-                quo architecto fugit ipsa, minus vel veniam labore repellendus
-                aliquam molestiae officia laudantium unde enim tempora. Quaerat
-                libero recusandae temporibus? Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Nam, aspernatur quo architecto
-                fugit ipsa, minus vel veniam labore repellendus aliquam
-                molestiae officia laudantium unde enim tempora. Quaerat libero
-                recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Nam, aspernatur quo architecto fugit ipsa,
-                minus vel veniam labore repellendus aliquam molestiae officia
-                laudantium unde enim tempora. Quaerat libero recusandae
-                temporibus?
-              </Typography>
-            </Container>
-          </TabPanelUnstyled>
-        </TabsUnstyled>
+        <Box ref={panelOne} sx={{ display: "none" }}>
+          <Container maxWidth="lg" sx={{ py: { xs: 6, md: 12 } }}>
+            <Typography
+              sx={{
+                color: "#3B3A4A ",
+                fontSize: "32px",
+                fontWeight: 400,
+                fontFamily: "Contrail One !important",
+                mb: 2,
+              }}
+            >
+              Impressum
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 400,
+                color: "#838383",
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus? Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Nam, aspernatur quo
+              architecto fugit ipsa, minus vel veniam labore repellendus aliquam
+              molestiae officia laudantium unde enim tempora. Quaerat libero
+              recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
+              adipisicing elit. Nam, aspernatur quo architecto fugit ipsa, minus
+              vel veniam labore repellendus aliquam molestiae officia laudantium
+              unde enim tempora. Quaerat libero recusandae temporibus? Lorem
+              ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus?
+            </Typography>
+          </Container>
+        </Box>
+
+        <Box ref={panelTwo} sx={{ display: "none" }}>
+          <Container maxWidth="lg" sx={{ py: { xs: 6, md: 12 } }}>
+            <Typography
+              sx={{
+                color: "#3B3A4A ",
+                fontSize: "32px",
+                fontWeight: 400,
+                fontFamily: "Contrail One !important",
+                mb: 2,
+              }}
+            >
+              Datenschutz
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 400,
+                color: "#838383",
+                mb: 4,
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus? Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Nam, aspernatur quo
+              architecto fugit ipsunde enim tempora. Quaerat libero recusandae
+              temporibus? Lorem ipsum dolor, sit amet consectetur adipisicing
+              elit. Nam, aspm molestiae officia laudantium unde enim tempora.
+              Quaerat libero recusandae temporibus?
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 400,
+                color: "#838383",
+                mb: 4,
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus? Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Nam, aspernatur quo
+              architecto fugit ipsunde enim tempora. Quaerat libero recusandae
+              temporibus? Lorem ipsum dolor, sit amet consectetur adipisicing
+              elit. Nam, aspm molestiae officia laudantium unde enim tempora.
+              Quaerat libero recusandae temporibus?
+            </Typography>
+          </Container>
+        </Box>
+
+        <Box ref={panelThree} sx={{ display: "none" }}>
+          <Container maxWidth="lg" sx={{ py: { xs: 6, md: 12 } }}>
+            <Typography
+              sx={{
+                color: "#3B3A4A ",
+                fontSize: "32px",
+                fontWeight: 400,
+                fontFamily: "Contrail One !important",
+                mb: 2,
+              }}
+            >
+              Allgemeine Geschäftsbedingungen
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 400,
+                color: "#838383",
+                mb: 4,
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus? Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Nam, aspernatur quo
+              architecto fugit ipsa, minus vel veniam labore repellendus aliquam
+              molestiae officia laudantium unde enim tempora. Quaerat libero
+              recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
+              adipisicing elit. Nam, aspernatur quo architecto fugit ipsa, minus
+              vel veniam labore repellendus aliquam molestiae officia laudantium
+              unde enim tempora. Quaerat libero recusandae temporibus? Lorem
+              ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus?
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 400,
+                color: "#838383",
+                mb: 4,
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus? Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Nam, aspernatur quo
+              architecto fugit ipsa,rnatur quo architecto fugit ipsa, minus vel
+              veniam labore repellendus aliquam molestiae officia laudantium
+              unde enim tempora. Quaerat libero recusandae temporibus?
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 400,
+                color: "#838383",
+                mb: 4,
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus? Lorem ipsum dolor,
+              sit amet consectetur adipisicing elit. Nam, aspernatur quo
+              architecto fugit ipsa, minus vel veniam labore repellendus aliquam
+              molestiae officia laudantium unde enim tempora. Quaerat libero
+              recusandae temporibus? Lorem ipsum dolor, sit amet consectetur
+              adipisicing elit. Nam, aspernatur quo architecto fugit ipsa, minus
+              vel veniam labore repellendus aliquam molestiae officia laudantium
+              unde enim tempora. Quaerat libero recusandae temporibus? Lorem
+              ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+              aspernatur quo architecto fugit ipsa, minus vel veniam labore
+              repellendus aliquam molestiae officia laudantium unde enim
+              tempora. Quaerat libero recusandae temporibus?
+            </Typography>
+          </Container>
+        </Box>
       </Box>
     </footer>
   );

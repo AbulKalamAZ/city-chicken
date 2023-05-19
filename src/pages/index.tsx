@@ -262,10 +262,14 @@ const LandingPage: React.FC = () => {
                 <Typography
                   textAlign={"left"}
                   sx={{
-                    px: 5,
+                    px: { xs: 2, xl: 5 },
                     flexGrow: 1,
                     color: "#fff",
-                    fontSize: "40px",
+                    fontSize: {
+                      xs: "24px",
+                      lg: "28px",
+                      xl: "40px",
+                    },
                     fontWeight: 400,
                     fontFamily: "Contrail One !important",
                   }}
@@ -274,7 +278,7 @@ const LandingPage: React.FC = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    px: 5,
+                    px: { xs: 2, xl: 5 },
                     flexGrow: 1,
                     color: "#fff",
                     fontWeight: 400,
@@ -301,8 +305,8 @@ const LandingPage: React.FC = () => {
                       color="inherit"
                       sx={{
                         float: "left",
-                        marginRight: { lg: 1, xl: 3 },
-                        marginLeft: { lg: 1, xl: 3 },
+                        marginRight: { lg: 0.5, xl: 3 },
+                        marginLeft: { lg: 0.5, xl: 3 },
                         textTransform: "capitalize   !important",
                         color: "#fff",
                         fontFamily: "Inter !important",
