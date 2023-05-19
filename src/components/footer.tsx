@@ -33,7 +33,7 @@ const Footer = () => {
     }
   `;
 
-  const handleBtnClick = (e) => {
+  const handleBtnClick = (e: any) => {
     const classes = e.target.classList;
 
     if (classes.contains("selected")) {
