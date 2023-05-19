@@ -4,13 +4,13 @@ import { useRef } from "react";
 
 const Footer = () => {
   const selectedTab = useRef(null);
-  const tabOne = useRef(null);
-  const tabTwo = useRef(null);
-  const tabThree = useRef(null);
+  const tabOne = useRef<HTMLButtonElement>(null);
+  const tabTwo = useRef<HTMLButtonElement>(null);
+  const tabThree = useRef<HTMLButtonElement>(null);
 
-  const panelOne = useRef(null);
-  const panelTwo = useRef(null);
-  const panelThree = useRef(null);
+  const panelOne = useRef<HTMLDivElement>(null);
+  const panelTwo = useRef<HTMLDivElement>(null);
+  const panelThree = useRef<HTMLDivElement>(null);
 
   const CustomFooterButton = styled(Button)`
     font-family: Inter;
@@ -38,49 +38,49 @@ const Footer = () => {
 
     if (classes.contains("selected")) {
       classes.remove("selected");
-      panelOne.current.style.display = "none";
-      panelTwo.current.style.display = "none";
-      panelThree.current.style.display = "none";
+      panelOne.current!.style.display = "none";
+      panelTwo.current!.style.display = "none";
+      panelThree.current!.style.display = "none";
       return 0;
     } else {
       classes.add("selected");
     }
 
     if (e.target === tabOne.current) {
-      panelOne.current.style.display = "block";
+      panelOne.current!.style.display = "block";
 
-      panelTwo.current.style.display = "none";
-      panelThree.current.style.display = "none";
+      panelTwo.current!.style.display = "none";
+      panelThree.current!.style.display = "none";
 
-      tabTwo.current.classList.contains("selected")
-        ? tabTwo.current.classList.remove("selected")
+      tabTwo.current!.classList.contains("selected")
+        ? tabTwo.current!.classList.remove("selected")
         : console.log("not found 2");
-      tabTwo.current.classList.contains("selected")
-        ? tabThree.current.classList.remove("selected")
+      tabTwo.current!.classList.contains("selected")
+        ? tabThree.current!.classList.remove("selected")
         : console.log("not found 3");
     } else if (e.target === tabTwo.current) {
-      panelTwo.current.style.display = "block";
+      panelTwo.current!.style.display = "block";
 
-      panelOne.current.style.display = "none";
-      panelThree.current.style.display = "none";
+      panelOne.current!.style.display = "none";
+      panelThree.current!.style.display = "none";
 
-      tabOne.current.classList.contains("selected")
-        ? tabOne.current.classList.remove("selected")
+      tabOne.current!.classList.contains("selected")
+        ? tabOne.current!.classList.remove("selected")
         : console.log("not found 1");
-      tabThree.current.classList.contains("selected")
-        ? tabThree.current.classList.remove("selected")
+      tabThree.current!.classList.contains("selected")
+        ? tabThree.current!.classList.remove("selected")
         : console.log("not found 3");
     } else {
-      panelThree.current.style.display = "block";
+      panelThree.current!.style.display = "block";
 
-      panelOne.current.style.display = "none";
-      panelTwo.current.style.display = "none";
+      panelOne.current!.style.display = "none";
+      panelTwo.current!.style.display = "none";
 
-      tabOne.current.classList.contains("selected")
-        ? tabOne.current.classList.remove("selected")
+      tabOne.current!.classList.contains("selected")
+        ? tabOne.current!.classList.remove("selected")
         : console.log("not found 1");
-      tabTwo.current.classList.contains("selected")
-        ? tabTwo.current.classList.remove("selected")
+      tabTwo.current!.classList.contains("selected")
+        ? tabTwo.current!.classList.remove("selected")
         : console.log("not found 2");
     }
   };
