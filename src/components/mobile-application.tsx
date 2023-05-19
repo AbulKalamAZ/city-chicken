@@ -35,7 +35,7 @@ const AvailableOnSection: React.FC = () => {
               sx={{
                 maxWidth: "98px",
                 width: "62px !important",
-                fontFamily: "Nunito Sans !important",
+                fontFamily: "Inter !important",
                 fontSize: "0.875rem",
                 color: "#000",
                 padding: "10px 20px",
@@ -75,13 +75,17 @@ const AvailableOnSection: React.FC = () => {
               mr={5}
               sx={{
                 color: "#000",
-                fontFamily: "Nunito Sans",
+                fontFamily: "Inter !important",
                 textAlign: "left",
                 fontSize: "14px",
               }}
             >
               foodfood <br />{" "}
-              <span style={{ fontSize: "10px" }}>Business Partner</span>
+              <span
+                style={{ fontSize: "10px", fontFamily: "Inter !important" }}
+              >
+                Business Partner
+              </span>
             </Typography>
           </Box>
         </Box>

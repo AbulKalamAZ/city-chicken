@@ -148,7 +148,7 @@ const LandingPage: React.FC = () => {
         />
       </Head>
       <Box>
-        <AppBar sx={{ backgroundColor: "#DD2E35" }}>
+        <AppBar sx={{ backgroundColor: "#DD2E35", display: { lg: "none" } }}>
           <Box component="nav">
             <Stack
               direction="row"
@@ -167,7 +167,12 @@ const LandingPage: React.FC = () => {
                 }}
               >
                 City Chicken <br />{" "}
-                <span style={{ fontSize: "0.875rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.875rem",
+                    fontFamily: "Inter!important",
+                  }}
+                >
                   Das Original seit 1996
                 </span>
               </Typography>
@@ -346,7 +351,7 @@ const LandingPage: React.FC = () => {
                   sx={{
                     maxWidth: "98px",
                     width: "62px !important",
-                    fontFamily: "Nunito Sans !important",
+                    fontFamily: "Inter !important",
                     fontSize: "0.875rem",
                     color: "#000",
                     padding: "10px 20px",
@@ -386,7 +391,7 @@ const LandingPage: React.FC = () => {
                   mr={5}
                   sx={{
                     color: "#fff",
-                    fontFamily: "Nunito Sans",
+                    fontFamily: "Inter !important",
                     textAlign: "left",
                     fontSize: "14px",
                   }}

@@ -12,6 +12,8 @@ const Footer = () => {
   const panelTwo = useRef<HTMLDivElement>(null);
   const panelThree = useRef<HTMLDivElement>(null);
 
+  const footer = useRef<HTMLElement>(null);
+
   const CustomFooterButton = styled(Button)`
     font-family: Inter;
     font-size: 16px;
@@ -33,6 +35,22 @@ const Footer = () => {
     }
   `;
 
+  const intoView = () => {
+    const footer = document.getElementById("footer");
+
+    if (footer) {
+      const elementTop = footer.getBoundingClientRect().top;
+      const pageY = window.pageYOffset;
+
+      const combinedValue = elementTop + pageY;
+
+      window.scrollTo({
+        top: combinedValue,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const handleBtnClick = (e: any) => {
     const classes = e.target.classList;
 
@@ -43,10 +61,13 @@ const Footer = () => {
       panelThree.current!.style.display = "none";
       return 0;
     } else {
+      // footer.current!.scrollIntoView({ behavior: "smooth" });
       classes.add("selected");
     }
 
     if (e.target === tabOne.current) {
+      // footer.current!.scrollIntoView({ behavior: "smooth" });
+
       panelOne.current!.style.display = "block";
 
       panelTwo.current!.style.display = "none";
@@ -58,7 +79,11 @@ const Footer = () => {
       tabTwo.current!.classList.contains("selected")
         ? tabThree.current!.classList.remove("selected")
         : console.log("not found 3");
+
+      intoView();
     } else if (e.target === tabTwo.current) {
+      // footer.current!.scrollIntoView({ behavior: "smooth" });
+
       panelTwo.current!.style.display = "block";
 
       panelOne.current!.style.display = "none";
@@ -70,7 +95,10 @@ const Footer = () => {
       tabThree.current!.classList.contains("selected")
         ? tabThree.current!.classList.remove("selected")
         : console.log("not found 3");
+      intoView();
     } else {
+      // footer.current!.scrollIntoView({ behavior: "smooth" });
+
       panelThree.current!.style.display = "block";
 
       panelOne.current!.style.display = "none";
@@ -82,11 +110,12 @@ const Footer = () => {
       tabTwo.current!.classList.contains("selected")
         ? tabTwo.current!.classList.remove("selected")
         : console.log("not found 2");
+      intoView();
     }
   };
 
   return (
-    <footer>
+    <footer ref={footer} id="footer">
       <Box sx={{ mt: { xs: 25, md: 20 } }}>
         <Box
           sx={{

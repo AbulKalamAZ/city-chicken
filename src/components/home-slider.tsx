@@ -19,7 +19,7 @@ const responsive = {
   },
   laptop: {
     breakpoint: { max: 1500, min: 1024 },
-    items: 3,
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -33,6 +33,8 @@ const responsive = {
 
 const HomeSlider = () => {
   const CustomFab = styled(Fab)`
+    width: 74px;
+    height: 74px;
     background-color: #dd2e35 !important;
 
     :hover {
@@ -42,6 +44,7 @@ const HomeSlider = () => {
   const CustomRight = ({ onClick }: { onClick?: any }) => {
     return (
       <CustomFab
+        size="large"
         onClick={() => onClick()}
         aria-label="right-arrow"
         sx={{
@@ -51,13 +54,14 @@ const HomeSlider = () => {
           display: { xs: "none", md: "block" },
         }}
       >
-        <KeyboardArrowRightIcon sx={{ color: "#F7AB3C", fontSize: 40 }} />
+        <KeyboardArrowRightIcon sx={{ color: "#F7AB3C", fontSize: 64 }} />
       </CustomFab>
     );
   };
   const CustomLeft = ({ onClick }: { onClick?: any }) => {
     return (
       <CustomFab
+        size="large"
         onClick={() => onClick()}
         color="primary"
         aria-label="left-arrow"
@@ -69,7 +73,7 @@ const HomeSlider = () => {
           display: { xs: "none", md: "block" },
         }}
       >
-        <KeyboardArrowLeftIcon sx={{ color: "#F7AB3C", fontSize: 40 }} />
+        <KeyboardArrowLeftIcon sx={{ color: "#F7AB3C", fontSize: 64 }} />
       </CustomFab>
     );
   };
@@ -96,7 +100,11 @@ const HomeSlider = () => {
               src={image}
               width="375"
               height="375"
-              style={{ width: "375px !important", height: "375px !important" }}
+              style={{
+                width: "375px !important",
+                height: "375px !important",
+                padding: "18px",
+              }}
               alt="carousel item"
             />
           </div>
