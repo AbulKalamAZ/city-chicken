@@ -105,7 +105,16 @@ const LandingPage: React.FC = () => {
     const element = document.getElementById(section);
 
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const elementTop = element.getBoundingClientRect().top;
+      const pageY = window.pageYOffset;
+      const customOffsetValue = -120;
+
+      const combinedValue = elementTop + pageY + customOffsetValue;
+
+      window.scrollTo({
+        top: combinedValue,
+        behavior: "smooth",
+      });
     }
   };
   const isBrowser = () => typeof window !== "undefined";
@@ -322,37 +331,41 @@ const LandingPage: React.FC = () => {
                   ))}
                 </Box>
               </Box>
-              <Box sx={{ display: { xs: "none", sm: "none", md: "flex" } }}>
-                <Box>
-                  <CustomButton
-                    sx={{
-                      maxWidth: "98px",
-                      width: "62px !important",
-                      fontFamily: "Nunito Sans !important",
-                      fontSize: "0.875rem",
-                      color: "#000",
-                      padding: "10px 20px",
-                      backgroundColor: "#D9D9D9 !important",
-                      boxShadow: "none",
-                      textTransform: "capitalize",
-                      borderRadius: "0px !important",
-                      fontWeight: 600,
-                      height: "32px !important",
+              <Box
+                sx={{
+                  display: { xs: "none", sm: "none", md: "flex" },
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <CustomButton
+                  sx={{
+                    maxWidth: "98px",
+                    width: "62px !important",
+                    fontFamily: "Nunito Sans !important",
+                    fontSize: "0.875rem",
+                    color: "#000",
+                    padding: "10px 20px",
+                    backgroundColor: "#D9D9D9 !important",
+                    boxShadow: "none",
+                    textTransform: "capitalize",
+                    borderRadius: "0px !important",
+                    fontWeight: 600,
+                    height: "32px !important",
 
-                      "&:hover": {
-                        backgroundColor: "#fff !important",
-                        boxShadow: "none",
-                        border: "1px solid #C4C4C4",
-                        color: theme.palette.text.primary,
-                      },
-                      mt: 4,
-                    }}
-                    size="small"
-                    text="Logo"
-                    variant="contained"
-                    type="submit"
-                  />
-                </Box>
+                    "&:hover": {
+                      backgroundColor: "#fff !important",
+                      boxShadow: "none",
+                      border: "1px solid #C4C4C4",
+                      color: theme.palette.text.primary,
+                    },
+                    mt: 4,
+                  }}
+                  size="small"
+                  text="Logo"
+                  variant="contained"
+                  type="submit"
+                />
                 <Divider
                   orientation="vertical"
                   color="#fff"
@@ -389,7 +402,7 @@ const LandingPage: React.FC = () => {
                 backgroundImage: 'url("/Restaurant.png")',
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
-                height: "100vh",
+                height: { xs: "50vh", md: "100vh" },
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -397,8 +410,8 @@ const LandingPage: React.FC = () => {
                 width: "100%",
               }}
             ></Box>
-            <SectionDivider />
           </Box>
+          <SectionDivider />
         </section>
         <section id="restaurant" style={{}}>
           <Container maxWidth="lg" sx={{ pt: 16, pb: 6 }}>

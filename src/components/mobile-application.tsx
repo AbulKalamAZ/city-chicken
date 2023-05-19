@@ -24,37 +24,41 @@ const AvailableOnSection: React.FC = () => {
             Lade dir jetzt die foodysee App <br /> runter und finde <br />{" "}
             unsere Speisen in ihrem Handy
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "none", md: "flex" } }}>
-            <Box>
-              <CustomButton
-                sx={{
-                  maxWidth: "98px",
-                  width: "62px !important",
-                  fontFamily: "Nunito Sans !important",
-                  fontSize: "0.875rem",
-                  color: "#000",
-                  padding: "10px 20px",
-                  backgroundColor: "#D9D9D9 !important",
-                  boxShadow: "none",
-                  textTransform: "capitalize",
-                  borderRadius: "0px !important",
-                  fontWeight: 700,
-                  height: "31px !important",
+          <Box
+            sx={{
+              display: { xs: "none", sm: "none", md: "flex" },
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <CustomButton
+              sx={{
+                maxWidth: "98px",
+                width: "62px !important",
+                fontFamily: "Nunito Sans !important",
+                fontSize: "0.875rem",
+                color: "#000",
+                padding: "10px 20px",
+                backgroundColor: "#D9D9D9 !important",
+                boxShadow: "none",
+                textTransform: "capitalize",
+                borderRadius: "0px !important",
+                fontWeight: 700,
+                height: "31px !important",
 
-                  "&:hover": {
-                    backgroundColor: "#fff !important",
-                    boxShadow: "none",
-                    border: "1px solid #C4C4C4",
-                    color: theme.palette.text.primary,
-                  },
-                  mt: 4,
-                }}
-                size="small"
-                text="Logo"
-                variant="contained"
-                type="submit"
-              />
-            </Box>
+                "&:hover": {
+                  backgroundColor: "#fff !important",
+                  boxShadow: "none",
+                  border: "1px solid #C4C4C4",
+                  color: theme.palette.text.primary,
+                },
+                mt: 4,
+              }}
+              size="small"
+              text="Logo"
+              variant="contained"
+              type="submit"
+            />
             <Divider
               orientation="vertical"
               color="#fff"
@@ -88,13 +92,14 @@ const AvailableOnSection: React.FC = () => {
         sm={12}
         md={4}
         sx={{
-          borderInline: { md: "1px solid #c5c5c5" },
-          borderBlock: {
-            xs: "1px solid #c5c5c5",
-            sm: "1px solid #c5c5c5",
-            md: "none",
-          },
-          borderRight: "none",
+          // borderInline: { md: "1px solid #c5c5c5" },
+          // borderBlock: {
+          //   xs: "1px solid #c5c5c5",
+          //   sm: "1px solid #c5c5c5",
+          //   md: "none",
+          // },
+          borderTop: { xs: "1px solid #c5c5c5", md: "none" },
+          borderLeft: { xs: "none", md: "1px solid #c5c5c5" },
           px: 5,
           py: { xs: 10, sm: 10 },
         }}

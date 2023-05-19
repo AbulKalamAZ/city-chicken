@@ -4,11 +4,13 @@ import Box from "@mui/material/Box";
 
 interface Props {
   isGray?: boolean;
+  id?: string;
 }
 
-const SectionDivider: React.FC<Props> = ({ isGray }) => {
+const SectionDivider: React.FC<Props> = ({ isGray, id }) => {
   return (
     <Box
+      id={id}
       sx={{
         width: "100%",
         height: "14px",
