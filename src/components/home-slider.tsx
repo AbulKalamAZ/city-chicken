@@ -80,8 +80,8 @@ const HomeSlider = () => {
 
   return (
     <Carousel
-      itemClass="pr-3 pr-md-9"
-      partialVisible={false}
+      itemClass="ml-[.165rem] lg:ml-0 max-w-[415px] lg:max-w-[430px] xl:max-w-[452px]"
+      partialVisbile={false}
       arrows
       responsive={responsive}
       infinite={true}
@@ -95,12 +95,14 @@ const HomeSlider = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            width: { xs: "340px", xl: "412px" },
+            height: { xs: "340px", xl: "412px" },
           }}
         >
           <Box
             sx={{
-              width: { md: "375px", xl: "435px" },
-              height: { md: "375px", xl: "412px" },
+              width: "100%",
+              height: "100%",
             }}
           >
             <img src={image} width="100%" height="100%" alt="carousel item" />

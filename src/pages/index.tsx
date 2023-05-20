@@ -267,8 +267,7 @@ const LandingPage: React.FC = () => {
                 <Typography
                   textAlign={"left"}
                   sx={{
-                    px: { xs: 2, xl: 5 },
-                    flexGrow: 1,
+                    px: { xs: 2, xl: 3 },
                     color: "#fff",
                     fontSize: {
                       xs: "24px",
@@ -283,7 +282,7 @@ const LandingPage: React.FC = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    px: { xs: 2, xl: 5 },
+                    px: { xs: 2, xl: 3 },
                     flexGrow: 1,
                     color: "#fff",
                     fontWeight: 400,
@@ -310,14 +309,14 @@ const LandingPage: React.FC = () => {
                       color="inherit"
                       sx={{
                         float: "left",
-                        marginRight: { lg: 0.5, xl: 3 },
-                        marginLeft: { lg: 0.5, xl: 3 },
+                        marginRight: { lg: 0.35, xl: 2 },
+                        marginLeft: { lg: 0.35, xl: 2 },
                         textTransform: "capitalize   !important",
                         color: "#fff",
                         fontFamily: "Inter !important",
                         marginBottom: { xs: 0, sm: 0, md: -4 },
                         fontWeight: 400,
-                        fontSize: "14px",
+                        fontSize: { md: "14px", lg: "14px", xl: "20px" },
                       }}
                       onClick={() => handleSectionClick(`${button}`)}
                     >
@@ -349,10 +348,9 @@ const LandingPage: React.FC = () => {
               >
                 <CustomButton
                   sx={{
-                    maxWidth: "98px",
-                    width: "62px !important",
+                    maxWidth: "62px",
                     fontFamily: "Inter !important",
-                    fontSize: "0.875rem",
+                    fontSize: "14px",
                     color: "#000",
                     padding: "10px 20px",
                     backgroundColor: "#D9D9D9 !important",
@@ -394,6 +392,9 @@ const LandingPage: React.FC = () => {
                     fontFamily: "Inter !important",
                     textAlign: "left",
                     fontSize: "14px",
+                    lineHeight: 1.2,
+                    position: "relative",
+                    top: "1px",
                   }}
                 >
                   foodfood <br />{" "}

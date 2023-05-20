@@ -33,10 +33,9 @@ const AvailableOnSection: React.FC = () => {
           >
             <CustomButton
               sx={{
-                maxWidth: "98px",
-                width: "62px !important",
+                maxWidth: "62px",
                 fontFamily: "Inter !important",
-                fontSize: "0.875rem",
+                fontSize: "14px",
                 color: "#000",
                 padding: "10px 20px",
                 backgroundColor: "#D9D9D9 !important",
@@ -44,7 +43,7 @@ const AvailableOnSection: React.FC = () => {
                 textTransform: "capitalize",
                 borderRadius: "0px !important",
                 fontWeight: 700,
-                height: "31px !important",
+                height: "32px !important",
 
                 "&:hover": {
                   backgroundColor: "#fff !important",
@@ -78,6 +77,9 @@ const AvailableOnSection: React.FC = () => {
                 fontFamily: "Inter !important",
                 textAlign: "left",
                 fontSize: "14px",
+                lineHeight: 1.2,
+                position: "relative",
+                top: "1px",
               }}
             >
               foodfood <br />{" "}
