@@ -49,7 +49,7 @@ const HomeSlider = () => {
         aria-label="right-arrow"
         sx={{
           position: "absolute",
-          top: "50%",
+          top: "45%",
           right: "48px",
           display: { xs: "none", md: "block" },
         }}
@@ -67,7 +67,7 @@ const HomeSlider = () => {
         aria-label="left-arrow"
         sx={{
           position: "absolute",
-          top: "50%",
+          top: "45%",
           left: "48px",
           backgroundColor: "#DD2E35",
           display: { xs: "none", md: "block" },
@@ -80,6 +80,8 @@ const HomeSlider = () => {
 
   return (
     <Carousel
+      itemClass="pr-3 pr-md-9"
+      partialVisible={false}
       arrows
       responsive={responsive}
       infinite={true}
@@ -95,19 +97,14 @@ const HomeSlider = () => {
             alignItems: "center",
           }}
         >
-          <div>
-            <img
-              src={image}
-              width="375"
-              height="375"
-              style={{
-                width: "375px !important",
-                height: "375px !important",
-                padding: "18px",
-              }}
-              alt="carousel item"
-            />
-          </div>
+          <Box
+            sx={{
+              width: { md: "375px", xl: "435px" },
+              height: { md: "375px", xl: "412px" },
+            }}
+          >
+            <img src={image} width="100%" height="100%" alt="carousel item" />
+          </Box>
         </Box>
       ))}
     </Carousel>
