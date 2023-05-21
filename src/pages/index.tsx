@@ -440,7 +440,7 @@ const LandingPage: React.FC = () => {
 
           <SectionDivider />
         </section>
-        <section id="services" style={{ minHeight: "100vh" }}>
+        <section id="services">
           <Container maxWidth="lg" sx={{ pt: 16 }}>
             <Service />
 
@@ -449,14 +449,14 @@ const LandingPage: React.FC = () => {
 
           <SectionDivider />
         </section>
-        <section id="offnungszeiten" style={{ minHeight: "100vh" }}>
+        <section id="offnungszeiten">
           <Container sx={{ py: 16 }}>
             <Timings />
           </Container>
 
           <SectionDivider />
         </section>
-        <section id="standort" style={{ minHeight: "100vh" }}>
+        <section id="standort">
           <Box>
             <BerlinMap />
           </Box>
