@@ -6,7 +6,7 @@ const BerlinMap = () => {
   const array = ["City Chicken", "Email  City Chicken", "101781   Berlin"];
   return (
     <Box py={16}>
-      <div style={{ height: "400px", width: "100%" }}>
+      <div style={{ height: "520px", width: "100%" }}>
         <Container maxWidth="lg">
           <div>
             <Typography
