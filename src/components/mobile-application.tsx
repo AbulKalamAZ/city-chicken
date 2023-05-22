@@ -94,18 +94,15 @@ const AvailableOnSection: React.FC = () => {
       </Grid>
       <Grid
         item
-        xs={12}
-        sm={12}
+        xs={6}
+        sm={6}
         md={4}
         sx={{
-          // borderInline: { md: "1px solid #c5c5c5" },
-          // borderBlock: {
-          //   xs: "1px solid #c5c5c5",
-          //   sm: "1px solid #c5c5c5",
-          //   md: "none",
-          // },
-          borderTop: { xs: "1px solid #c5c5c5", md: "none" },
-          borderLeft: { xs: "none", md: "1px solid #c5c5c5" },
+          borderInline: { xs: "1px solid #c5c5c5" },
+          borderBlock: "none",
+          borderRight: "none !important",
+          // borderTop: { xs: "1px solid #c5c5c5", md: "none" },
+          // borderLeft: { xs: "none", md: "1px solid #c5c5c5" },
           px: 5,
           py: { xs: 10, sm: 10 },
         }}
@@ -124,16 +121,12 @@ const AvailableOnSection: React.FC = () => {
       </Grid>
       <Grid
         item
-        xs={12}
-        sm={12}
+        xs={6}
+        sm={6}
         md={4}
         sx={{
-          borderInline: { md: "1px solid #c5c5c5" },
-          borderBlock: {
-            xs: "1px solid #c5c5c5",
-            sm: "1px solid #c5c5c5",
-            md: "none",
-          },
+          borderInline: { xs: "1px solid #c5c5c5" },
+          borderBlock: "none",
           px: 5,
           py: { xs: 10, sm: 10 },
         }}

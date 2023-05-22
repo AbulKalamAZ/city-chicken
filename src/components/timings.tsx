@@ -1,12 +1,8 @@
+import { icons } from "@/data/slider-images";
 import { days, pause } from "@/data/timing";
-import DoorFrontIcon from "@mui/icons-material/DoorFront";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
-import PauseIcon from "@mui/icons-material/Pause";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { Box, Grid, Typography } from "@mui/material";
 const Timings = () => {
+  const [open, closed, paused, play, fire, noFire] = icons;
   return (
     <Box>
       <Box>
@@ -46,10 +42,10 @@ const Timings = () => {
                       Ladenzeiten
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      <MeetingRoomIcon />
+                      <img src={open} width="20px" height="20px" />
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      <DoorFrontIcon />
+                      <img src={closed} width="20px" height="20px" />
                     </th>
                   </tr>
                 </thead>
@@ -88,10 +84,10 @@ const Timings = () => {
                       Pausenzieten
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      <PauseIcon />
+                      <img src={paused} width="20px" height="20px" />
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      <PlayArrowIcon />
+                      <img src={play} width="20px" height="20px" />
                     </th>
                   </tr>
                 </thead>
@@ -126,10 +122,10 @@ const Timings = () => {
                       Kuchenzeiten
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      <WhatshotIcon />
+                      <img src={fire} width="20px" height="20px" />
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      <LocalFireDepartmentIcon />
+                      <img src={noFire} width="20px" height="20px" />
                     </th>
                   </tr>
                 </thead>

@@ -28,16 +28,28 @@ const Payments = () => {
                 borderBottom: "1px solid #f1f1f1",
                 mr: 3,
                 paddingBottom: "16px",
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
               }}
               gap={2}
             >
-              <img src={data.icon} />
-              <Typography
-                fontWeight={400}
-                sx={{ fontSize: "12px", fontFamily: "Inter" }}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: { xs: "4px", md: "16px" },
+                }}
               >
-                {data.name}
-              </Typography>
+                <img src={data.icon} />
+                <Typography
+                  fontWeight={400}
+                  sx={{ fontSize: "12px", fontFamily: "Inter" }}
+                >
+                  {data.name}
+                </Typography>
+              </Box>
             </Stack>
           </Grid>
         ))}

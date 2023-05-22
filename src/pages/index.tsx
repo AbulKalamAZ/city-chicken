@@ -135,7 +135,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <Head>
-        <link
+        {/* <link
           rel="stylesheet"
           type="text/css"
           charSet="UTF-8"
@@ -145,37 +145,64 @@ const LandingPage: React.FC = () => {
           rel="stylesheet"
           type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-        />
+        /> */}
       </Head>
       <Box>
         <AppBar sx={{ backgroundColor: "#DD2E35", display: { lg: "none" } }}>
-          <Box component="nav">
+          <Box
+            component="nav"
+            sx={
+              {
+                // padding: "16px",
+              }
+            }
+          >
             <Stack
               direction="row"
               alignItems={"center"}
               justifyContent={"space-between"}
             >
-              <Typography
-                textAlign={"left"}
+              <Box
                 sx={{
-                  px: 5,
-                  flexGrow: 1,
-                  color: "#fff",
-                  fontSize: "1.7rem",
-                  fontWeight: 400,
-                  fontFamily: "Contrail One !important",
+                  display: {
+                    xs: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    gap: "20px",
+                  },
                 }}
+                onClick={handleRefresh}
               >
-                City Chicken <br />{" "}
-                <span
+                <img
+                  src="/logo.svg"
                   style={{
-                    fontSize: "0.875rem",
-                    fontFamily: "Inter!important",
+                    width: "120px",
+                    height: "80px",
+                  }}
+                />
+
+                <Typography
+                  textAlign={"left"}
+                  sx={{
+                    color: "#fff",
+                    fontSize: "1.25rem",
+                    fontWeight: 400,
+                    fontFamily: "Contrail One !important",
                   }}
                 >
-                  Das Original seit 1996
-                </span>
-              </Typography>
+                  City Chicken
+                  <span
+                    style={{
+                      display: "block",
+                      fontSize: "0.75rem",
+                      fontFamily: "Inter!important",
+                    }}
+                  >
+                    Das Original seit 1996
+                  </span>
+                </Typography>
+              </Box>
+
               <IconButton
                 sx={{ float: "right", mx: 2 }}
                 onClick={handleDrawerToggle}
@@ -226,7 +253,6 @@ const LandingPage: React.FC = () => {
         </AppBar>
 
         <AppBar
-          position="sticky"
           sx={{
             backgroundColor: "#fff",
             color: "#333",

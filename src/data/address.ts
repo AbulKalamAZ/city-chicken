@@ -5,5 +5,5 @@ export const address = {
   city: "berlin",
   sonnenallee: "Sonnenallee",
   value: 35,
-  map: "https://www.google.com/maps/embed/v1/place?key=AIzaSyDIw0poJUjxwPSV3FkMnDnppLdNBT_72ZY&q=Space+Needle,Seattle+WA",
+  map: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJD0BNpLpPqEcRHki2Bj2doE4&key=AIzaSyDIw0poJUjxwPSV3FkMnDnppLdNBT_72ZY",
 };

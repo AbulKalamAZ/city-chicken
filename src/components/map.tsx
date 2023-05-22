@@ -5,7 +5,7 @@ const BerlinMap = () => {
 
   const array = ["City Chicken", "Email  City Chicken", "101781   Berlin"];
   return (
-    <Box py={16}>
+    <Box pt={16} pb={22}>
       <div style={{ height: "520px", width: "100%" }}>
         <Container maxWidth="lg">
           <div>
@@ -30,48 +30,79 @@ const BerlinMap = () => {
           aria-hidden="false"
           src={`${address.map}`}
         ></iframe>
-        <Container sx={{ fontFamily: "Inter" }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                sx={{ borderBottom: "1px solid #f1f1f1" }}
-              >
-                <Typography>{address.name}</Typography>
-              </Stack>
+        <Container sx={{ fontFamily: "Inter", fontSize: "14px" }}>
+          <Box sx={{ padding: { xs: "0 20px", sm: "0 25px", md: "0" } }}>
+            <Grid container spacing={4}>
+              <Grid item xs={12} sm={12} md={4}>
+                <Box>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    sx={{
+                      paddingBottom: { xs: "16px", md: "24px" },
+                      marginBottom: { xs: "18px", md: "24px" },
+                      borderBottom: "1px solid #dbdbdb",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {address.name}
+                    </Typography>
+                  </Stack>
+
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    sx={{
+                      paddingBottom: { xs: "16px", md: "24px" },
+                      marginBottom: { xs: "18px", md: "24px" },
+                      borderBottom: "1px solid #dbdbdb",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "14px" }}>Email</Typography>
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {address.email}
+                    </Typography>
+                  </Stack>
+                </Box>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  sx={{
+                    paddingBottom: { xs: "16px", md: "24px" },
+                    marginBottom: { xs: "18px", md: "24px" },
+                    borderBottom: "1px solid #dbdbdb",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "14px" }}>
+                    {address.sonnenallee}
+                  </Typography>
+                  <Typography sx={{ fontSize: "14px" }}>
+                    {address.value}
+                  </Typography>
+                </Stack>
+
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  sx={{
+                    paddingBottom: { xs: "16px", md: "24px" },
+                    marginBottom: { xs: "18px", md: "24px" },
+                    borderBottom: "1px solid #dbdbdb",
+                  }}
+                >
+                  <Typography sx={{ fontSize: "14px" }}>
+                    {address.pin}
+                  </Typography>
+                  <Typography sx={{ fontSize: "14px" }}>
+                    {address.city}
+                  </Typography>
+                </Stack>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}></Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                sx={{ borderBottom: "1px solid #f1f1f1" }}
-              >
-                <Typography>{address.sonnenallee}</Typography>
-                <Typography>{address.value}</Typography>
-              </Stack>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                sx={{ borderBottom: "1px solid #f1f1f1" }}
-              >
-                <Typography>Email</Typography>
-                <Typography>{address.email}</Typography>
-              </Stack>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                sx={{ borderBottom: "1px solid #f1f1f1" }}
-              >
-                <Typography>{address.pin}</Typography>
-                <Typography>{address.city}</Typography>
-              </Stack>
-            </Grid>
-          </Grid>
+          </Box>
         </Container>
       </div>
     </Box>
