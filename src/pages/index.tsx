@@ -173,13 +173,24 @@ const LandingPage: React.FC = () => {
                 }}
                 onClick={handleRefresh}
               >
-                <img
-                  src="/logo.svg"
-                  style={{
+                <Box
+                  sx={{
+                    backgroundColor: "#fff",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                     width: "120px",
                     height: "80px",
                   }}
-                />
+                >
+                  <img
+                    src="/logo_bg_rmv.png"
+                    style={{
+                      width: "50px",
+                      height: "40px",
+                    }}
+                  />
+                </Box>
 
                 <Typography
                   textAlign={"left"}
@@ -227,9 +238,13 @@ const LandingPage: React.FC = () => {
             >
               <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
                 <img
-                  src="/logo.svg"
-                  style={{ width: "480px", height: "80px" }}
-                  alt="climateChange"
+                  src="/logo_bg_rmv.png"
+                  style={{
+                    width: "80px",
+                    height: "64px",
+                    margin: "8px auto",
+                  }}
+                  alt="logo"
                 />
                 <Divider />
                 <List>
