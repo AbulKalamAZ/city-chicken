@@ -34,7 +34,12 @@ const BerlinMap = () => {
           <Box sx={{ padding: { xs: "0 20px", sm: "0 25px", md: "0" } }}>
             <Grid container spacing={4}>
               <Grid item xs={12} sm={12} md={4}>
-                <Box>
+                <Box
+                  sx={{
+                    maxWidth: "280px",
+                    margin: { xs: "0 auto", md: "0 auto 0 0" },
+                  }}
+                >
                   <Stack
                     direction="row"
                     justifyContent="space-between"
@@ -66,39 +71,46 @@ const BerlinMap = () => {
                 </Box>
               </Grid>
               <Grid item xs={12} sm={12} md={4}>
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
+                <Box
                   sx={{
-                    paddingBottom: { xs: "16px", md: "24px" },
-                    marginBottom: { xs: "18px", md: "24px" },
-                    borderBottom: "1px solid #dbdbdb",
+                    maxWidth: "280px",
+                    margin: { xs: "0 auto", md: "0 auto 0 0" },
                   }}
                 >
-                  <Typography sx={{ fontSize: "14px" }}>
-                    {address.sonnenallee}
-                  </Typography>
-                  <Typography sx={{ fontSize: "14px" }}>
-                    {address.value}
-                  </Typography>
-                </Stack>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    sx={{
+                      paddingBottom: { xs: "16px", md: "24px" },
+                      marginBottom: { xs: "18px", md: "24px" },
+                      borderBottom: "1px solid #dbdbdb",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {address.sonnenallee}
+                    </Typography>
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {address.value}
+                    </Typography>
+                  </Stack>
 
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  sx={{
-                    paddingBottom: { xs: "16px", md: "24px" },
-                    marginBottom: { xs: "18px", md: "24px" },
-                    borderBottom: "1px solid #dbdbdb",
-                  }}
-                >
-                  <Typography sx={{ fontSize: "14px" }}>
-                    {address.pin}
-                  </Typography>
-                  <Typography sx={{ fontSize: "14px" }}>
-                    {address.city}
-                  </Typography>
-                </Stack>
+                  <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    sx={{
+                      paddingBottom: { xs: "16px", md: "24px" },
+                      marginBottom: { xs: "18px", md: "24px" },
+                      borderBottom: "1px solid #dbdbdb",
+                    }}
+                  >
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {address.pin}
+                    </Typography>
+                    <Typography sx={{ fontSize: "14px" }}>
+                      {address.city}
+                    </Typography>
+                  </Stack>
+                </Box>
               </Grid>
               <Grid item xs={12} sm={12} md={4}></Grid>
             </Grid>

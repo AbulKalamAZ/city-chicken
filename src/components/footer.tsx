@@ -40,8 +40,9 @@ const Footer = () => {
     if (footer) {
       const elementTop = footer.getBoundingClientRect().top;
       const pageY = window.pageYOffset;
+      const extraValue = window.innerWidth > 1024 ? 120 : 80;
 
-      const combinedValue = elementTop + pageY - 120;
+      const combinedValue = elementTop + pageY - extraValue;
 
       window.scrollTo({
         top: combinedValue,
@@ -119,72 +120,103 @@ const Footer = () => {
         <Box
           sx={{
             backgroundColor: "#000000",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
-            alignContent: "space-between",
-            gap: { xs: "4px", sm: "16px", md: "32px" },
+
             padding: { xs: "32px 12px", sm: "32px" },
             position: "sticky",
             top: { xs: "80px", lg: "121px" },
           }}
         >
-          <CustomFooterButton
-            disableRipple
-            ref={tabOne}
-            onClick={handleBtnClick}
-            data-value="0"
+          <Box
             sx={{
-              fontSize: { xs: "12px", sm: "12px", md: "18px" },
-              margin: { xs: 0, md: "6px" },
-              padding: { xs: "4px", sm: "4px 6px", md: "6px 8px" },
+              marginLeft: { xs: 0, lg: 35, xl: 21 },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+              alignContent: "space-between",
+              gap: { xs: "4px", sm: "16px", md: "18px", lg: "20px" },
             }}
           >
-            Impressum
-          </CustomFooterButton>
-          <CustomFooterButton
-            disableRipple
-            ref={tabTwo}
-            onClick={handleBtnClick}
-            data-value="1"
-            sx={{
-              fontSize: { xs: "12px", sm: "12px", md: "18px" },
-              margin: { xs: 0, md: "6px" },
-              padding: { xs: "4px", sm: "4px 6px", md: "6px 8px" },
-            }}
-          >
-            Datenschutz
-          </CustomFooterButton>
-          <CustomFooterButton
-            disableRipple
-            ref={tabThree}
-            onClick={handleBtnClick}
-            data-value="2"
-            sx={{
-              minWidth: {
-                xs: "48px !important",
-                sm: "56px !important",
-                md: "72px !important",
-              },
-              fontSize: { xs: "12px", sm: "12px", md: "18px" },
-              margin: { xs: 0, md: "6px" },
-              padding: { xs: "4px", sm: "4px 6px", md: "6px 8px" },
-            }}
-          >
-            AGB
-          </CustomFooterButton>
-          <Typography
-            sx={{
-              fontFamily: "Inter",
-              fontSize: { xs: "12px", sm: "12px", md: "18px" },
-              fontWeight: "700",
-              color: "white",
-              margin: { xs: 0, md: "6px" },
-            }}
-          >
-            © CNetX GmbH
-          </Typography>
+            <CustomFooterButton
+              disableRipple
+              ref={tabOne}
+              onClick={handleBtnClick}
+              data-value="0"
+              sx={{
+                fontSize: {
+                  xs: "12px",
+                  sm: "12px",
+                  md: "14px",
+                  lg: "16px",
+                  xl: "20px",
+                },
+                margin: { xs: 0, md: "6px" },
+                padding: { xs: "4px", sm: "4px 6px", md: "6px 8px" },
+              }}
+            >
+              Impressum
+            </CustomFooterButton>
+            <CustomFooterButton
+              disableRipple
+              ref={tabTwo}
+              onClick={handleBtnClick}
+              data-value="1"
+              sx={{
+                fontSize: {
+                  xs: "12px",
+                  sm: "12px",
+                  md: "14px",
+                  lg: "16px",
+                  xl: "20px",
+                },
+                margin: { xs: 0, md: "6px" },
+                padding: { xs: "4px", sm: "4px 6px", md: "6px 8px" },
+              }}
+            >
+              Datenschutz
+            </CustomFooterButton>
+            <CustomFooterButton
+              disableRipple
+              ref={tabThree}
+              onClick={handleBtnClick}
+              data-value="2"
+              sx={{
+                minWidth: {
+                  xs: "48px !important",
+                  sm: "56px !important",
+                  md: "72px !important",
+                },
+                fontSize: {
+                  xs: "12px",
+                  sm: "12px",
+                  md: "14px",
+                  lg: "16px",
+                  xl: "20px",
+                },
+                margin: { xs: 0, md: "6px" },
+                padding: { xs: "4px", sm: "4px 6px", md: "6px 8px" },
+              }}
+            >
+              AGB
+            </CustomFooterButton>
+            <Typography
+              sx={{
+                fontFamily: "Inter",
+                fontSize: {
+                  xs: "12px",
+                  sm: "12px",
+                  md: "14px",
+                  lg: "16px",
+                  xl: "20px",
+                },
+                fontWeight: "700",
+                color: "white",
+                margin: { xs: 0, md: "6px" },
+              }}
+            >
+              © CNetX GmbH
+            </Typography>
+          </Box>
         </Box>
 
         <Box ref={panelOne} sx={{ display: "none", minHeight: "100vh" }}>
