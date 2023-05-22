@@ -14,12 +14,12 @@ const responsive = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1500 },
-    items: 4,
+    breakpoint: { max: 3000, min: 1440 },
+    items: 3,
   },
   laptop: {
-    breakpoint: { max: 1500, min: 1024 },
-    items: 4,
+    breakpoint: { max: 1440, min: 1024 },
+    items: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -33,12 +33,17 @@ const responsive = {
 
 const HomeSlider = () => {
   const CustomFab = styled(Fab)`
-    width: 74px;
-    height: 74px;
+    width: 50px;
+    height: 50px;
     background-color: #dd2e35 !important;
 
     :hover {
       background-color: #dd2e35;
+    }
+
+    @media (min-width: 900px) {
+      width: 74px;
+      height: 74px;
     }
   `;
   const CustomRight = ({ onClick }: { onClick?: any }) => {
@@ -51,10 +56,12 @@ const HomeSlider = () => {
           position: "absolute",
           top: "45%",
           right: "48px",
-          display: { xs: "none", md: "block" },
+          display: { xs: "block" },
         }}
       >
-        <KeyboardArrowRightIcon sx={{ color: "#F7AB3C", fontSize: 64 }} />
+        <KeyboardArrowRightIcon
+          sx={{ color: "#F7AB3C", fontSize: { xs: 32, md: 64 } }}
+        />
       </CustomFab>
     );
   };
@@ -70,10 +77,12 @@ const HomeSlider = () => {
           top: "45%",
           left: "48px",
           backgroundColor: "#DD2E35",
-          display: { xs: "none", md: "block" },
+          display: { xs: "block" },
         }}
       >
-        <KeyboardArrowLeftIcon sx={{ color: "#F7AB3C", fontSize: 64 }} />
+        <KeyboardArrowLeftIcon
+          sx={{ color: "#F7AB3C", fontSize: { xs: 32, md: 64 } }}
+        />
       </CustomFab>
     );
   };
